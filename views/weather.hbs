@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css links of bootstrap 4 -->
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
+    <!-- j query of bootstrap 4 -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>weather</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="images/logo.png" type="image/png">
+</head>
+<body>
+   <div class="containter- fluid main_menu">
+    <div class="row">
+        <div class=" col-md-10 col-12 mx-auto">
+            <nav class="navbar navbar-expand-lg ">
+                <a class="navbar-brand" href="#"><i class="far fa-snowflake" ></i>
+                     Weather updates<i class="far fa-snowflake"  ></i></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+               
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">  
+                      <a class="nav-link" href="/weather">weather</a> 
+                    </li>
+                    <li class="nav-item">  
+                        <a class="nav-link" href="/about ">about us</a> 
+                      </li>
+                    
+                  </ul>
+                
+                </div>
+              </nav> </div>
+
+    </div>
+   </div>
+    <div class="main_header">
+
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+
+                <div class="container-fluid  main_content">
+
+                    <form class="temp_form ">
+
+                        <input type="text" id="cityName" placeholder="Enter you city name.." autocomplete="off">
+                        <br>
+                        <input type="submit" value="search" id="submitBtn">
+                        <p id="temp_err"></p>
+                    </form>
+
+                    <div class="tempInformation  ">
+                        <div class="top_layer">
+                            <p id="day">Tuesday</p>
+                            <p id="today_dat"></p>
+                        </div>
+                        <div class="main_layer ">
+                            <p id="city_name">Get output here </p>
+                            <div class="middle_layer data_hide">
+                                <p id="temp"><span id="temp_real_val">0</span><sup>o</sup>C</p>
+                                <p id="temp_status"><i class="fa fa-cloud" aria-hidden="true"></i></p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+     <!--footer code  -->
+     <footer>
+        <p>
+            Created  by Dhruv Rai  
+        </p>
+     </footer>
+   <script src="js/index.js"></script>
+   <script>
+    const day =document.getElementById('day');
+    const datei=document.getElementById('today_dat');
+    const getCuurentDay=()=>{
+        let weekday= new Array(7);
+        weekday[0]="sunday" 
+        weekday[1]="monday"
+        weekday[2]="tuesday"
+        weekday[3]="wednesday"
+        weekday[4]="thursday"
+        weekday[5]="friday"
+        weekday[6]="saturday"
+         let currentTime= new Date();
+         days= weekday[currentTime.getDay()];
+         day.innerText= days;
+             
+              let dates = currentTime.getDate();
+               let month = currentTime.getMonth()+1;
+               let year =  currentTime.getFullYear();
+               console.log(dates);
+                 p= dates+"/"+month+"/"+year;
+                  datei.innerText= p;
+    };
+    getCuurentDay();
+ 
+   </script>
+</body>
+</html>  
